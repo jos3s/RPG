@@ -6,21 +6,6 @@
 
 PL j1,j2;
 
-void habilidades(){
-    int h;
-    printf("\nDeseja ver a suas habilidades:\n Digite 1 para visualizar, 2 para não exibir. ");
-    scanf("%d", &h);
-    if(h==1){
-        puts("\nHabilidades");
-        printf("Nome:\t%s \t %s\n", j1.nome, j2.nome);
-        printf("Vida:\t%d \t %d\n", j1.vida,j2.vida);
-        printf("Defesa:\t%d \t %d\n", j1.defesa,j2.defesa);
-        printf("Força:\t%d \t %d\n", j1.forca, j2.forca);
-        printf("Vel.:\t%d \t %d\n", j1.velocidade, j2.velocidade);
-        puts("");
-    }
-}
-
 int jogador2(PL j1, PL j2){    
     int dano1,dano2;
     int dano;
