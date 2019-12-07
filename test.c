@@ -158,7 +158,7 @@ int main(){
     srand(time(NULL));
 
     jogadores();
-    habilidades();
+    habilidades(j1,j2);
     
     printf("\nO octaedro vai ser jogado.\n");
     int v=1+(rand()%8);
@@ -168,6 +168,7 @@ int main(){
         jogador2(j1, j2);
     }
     puts("");
+    puts("O jogo acabou.");
     puts("");
     system("pause");
 
