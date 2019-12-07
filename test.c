@@ -7,7 +7,6 @@
 PL j1,j2;
 
 int jogador2(PL j1, PL j2){    
-    int dano1,dano2;
     int dano;
     int at, es, com, def;
     int esc,dado;
@@ -76,7 +75,6 @@ int jogador2(PL j1, PL j2){
 }
 
 int jogador1(PL j1, PL j2){
-    int dano1,dano2;
     int dano;
     int at, es, com, def;
     int esc,dado;
