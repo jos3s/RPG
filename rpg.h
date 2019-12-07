@@ -47,7 +47,7 @@ PL criar(PL j){
 return j;
 }
 
-void habilidades(){         //Visualize as informações de habilidades dos personagens
+void habilidades(PL j1,PL j2){         //Visualize as informações de habilidades dos personagens
     int h;
     printf("\nDeseja ver a suas habilidades:\n Digite 1 para visualizar, 2 para não exibir. ");
     scanf("%d", &h);
