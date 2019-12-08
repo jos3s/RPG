@@ -3,17 +3,15 @@
 #include <locale.h>
 #include <time.h>
 
-
 typedef struct personagem{
     char nome[20];
     int vida;
     int defesa;
     int forca;
     int velocidade;
-}PL;
+}PL;    //PL - Player
 
- PL j,j1,j2,bot;
-
+PL j,j1,j2,bot;
 
 void habilidades(PL j1,PL j2, int h){
     if(h==1){
@@ -36,6 +34,7 @@ PL criar(PL j){
         scanf("%d", &j.forca);
         printf("Pontos de velocidade:");
         scanf("%d", &j.velocidade);
+        j.vida=1000;
         a=j.velocidade+j.forca+j.defesa;
         if(a>60)
             puts("Você ultrapassou o limite permitido, repita novamente");
@@ -60,15 +59,9 @@ int combo(int d, int v){
     return d;
 }
 
-
-
 int main(){
     setlocale(LC_ALL,"");
     srand(time(NULL));
-    j1.vida=1000;
-    j2.vida=1000;
-    int dano1,dano2;
-
 
     int dano;
     int at, es, com, def;
