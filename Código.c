@@ -67,7 +67,6 @@ int main(){
     int at, es, com, def;
     int esc,dado;
     char p,pt;
-
     printf("Digite I para iniciar o jogo, M para menu e E para finalizar: ");
     scanf("%s", &pt);
     do{
@@ -85,7 +84,6 @@ int main(){
             printf("\nDeseja ver a suas habilidades, digite 1 para visualizar, 2 para não exibir: ");
             scanf("%d", &h);
             habilidades(j1,j2, h);
-
             do{     //executando a luta
                 printf("\nO octaedro vai ser jogado.");
                 int v=1+(rand()%8);
@@ -214,7 +212,6 @@ int main(){
                         }while(j1.vida>0 || j2.vida>0);
                         printf("\n\nDigite 'A' para jogar novamente ou qualquer tecla para encerrar essa partida: ");
                         scanf("%s",&p);
-
                 }
             }while(p=='A');
         }else if(pt=='M'){
