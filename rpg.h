@@ -29,7 +29,10 @@ int combo(int d, int v){
     return d;
 }
 
-PL criar(PL j){
+PL criar(PL j){     //Cria um personagem e retorna o mesmo para ser salvo em uma varial do código
+    puts("\nJogador");
+    printf("Digite o nome do seu personagem:");
+    scanf(" %19[^\n]s", &j.nome);
     int a=0;
     j.vida=1000;
     do{     //cAtribuição dos pontos dos personagens
