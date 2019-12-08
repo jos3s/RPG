@@ -3,17 +3,15 @@
 #include <locale.h>
 #include <time.h>
 
-
 typedef struct personagem{
     char nome[20];
     int vida;
     int defesa;
     int forca;
     int velocidade;
-}PL;
+}PL;    //PL - Player
 
- PL j,j1,j2,bot;
-
+PL j,j1,j2,bot;
 
 void habilidades(PL j1,PL j2, int h){
     if(h==1){
@@ -36,6 +34,7 @@ PL criar(PL j){
         scanf("%d", &j.forca);
         printf("Pontos de velocidade:");
         scanf("%d", &j.velocidade);
+        j.vida=1000;
         a=j.velocidade+j.forca+j.defesa;
         if(a>60)
             puts("Você ultrapassou o limite permitido, repita novamente");
@@ -60,21 +59,14 @@ int combo(int d, int v){
     return d;
 }
 
-
-
 int main(){
     setlocale(LC_ALL,"");
     srand(time(NULL));
-    j1.vida=1000;
-    j2.vida=1000;
-    int dano1,dano2;
-
 
     int dano;
     int at, es, com, def;
     int esc,dado;
     char p,pt;
-
     printf("Digite I para iniciar o jogo, M para menu e E para finalizar: ");
     scanf("%s", &pt);
     do{
@@ -92,7 +84,6 @@ int main(){
             printf("\nDeseja ver a suas habilidades, digite 1 para visualizar, 2 para não exibir: ");
             scanf("%d", &h);
             habilidades(j1,j2, h);
-
             do{     //executando a luta
                 printf("\nO octaedro vai ser jogado.");
                 int v=1+(rand()%8);
@@ -221,7 +212,6 @@ int main(){
                         }while(j1.vida>0 || j2.vida>0);
                         printf("\n\nDigite 'A' para jogar novamente ou qualquer tecla para encerrar essa partida: ");
                         scanf("%s",&p);
-
                 }
             }while(p=='A');
         }else if(pt=='M'){

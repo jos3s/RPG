@@ -1,0 +1,4 @@
+#Executaveis 
+*.exe
+#Compilação no Code::Blocks
+*.o
