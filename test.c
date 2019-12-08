@@ -7,10 +7,7 @@
 PL j1,j2;
 
 int jogador1(PL j1, PL j2){
-    int dano;
-    int at, es, com, def;
-    int esc,dado;
-    char p,pt;
+    int esc;
 
     printf("%s vai ser o primeiro", j1.nome);
     do{
@@ -47,10 +44,7 @@ int jogador1(PL j1, PL j2){
 }
 
 int jogador2(PL j1, PL j2){    
-    int dano;
-    int at, es, com, def;
-    int esc,dado;
-    char p,pt;
+    int esc;
 
     printf("%s vai ser o primeiro", j2.nome);
     do{
