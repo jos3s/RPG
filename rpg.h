@@ -62,4 +62,30 @@ void habilidades(PL j1,PL j2){         //Visualize as informações de habilidad
     }
 }
 
+int jdefesa(int forca, int vel, int defe){      //Opção de defesa do jogador 
+    int dado,at,def,dano;
+    dado=1+(rand()%8);
+    at=ataque(forca,vel);
+    def=defesa(defe, dado);
+    dano=at-def;
+    printf("O ataque foi de %d e a defesa evitou %d de dano, o dano final foi de %d.", at,def,dano);
+    if(dano<0)
+        return 0;
+    else 
+        return dano;
+}
+
+int jesquivar(int forca,int vel, int vel1){     //Opção de esquivar do jogador
+    int dado,at,es,dano;
+    dado=1+(rand()%8);
+    at=ataque(forca,vel);
+    es=esquivar(vel1, dado);
+    dano=at-es;
+    printf("O ataque foi de %d e o esquivar evitou %d de dano, o dano final foi de %d.", at,es,dano);
+    if(dano<0)
+        return 0;
+    else
+        return dano;
+}
+
 #endif
