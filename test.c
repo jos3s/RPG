@@ -18,26 +18,12 @@ int jogador2(PL j1, PL j2){
         printf("\nJogador %s escolha 1 para esquivar ou 2 para defender: ",j1.nome);
         scanf("%d", &esc);
             if(esc==1){
-                dado=1+(rand()%8);
-                at=ataque(j2.forca,j2.velocidade);
-                es=esquivar(j1.velocidade, dado);
-                dano=at-es;
-                if(dano<0)
-                    dano=0;
-                printf("O ataque foi de %d e o esquivar evitou %d de dano, o dano final foi de %d.", at,es,dano);
-                j1.vida-=dano;
+                j1.vida-=jesquivar(j2.forca, j2.velocidade, j1.velocidade);
                 printf("\nA vida atual de %s é de: %d",j1.nome, j1.vida);
                 if(j1.vida<=0)
                     break;
             }else{
-                dado=1+(rand()%8);
-                at=ataque(j2.forca,j2.velocidade);
-                def=defesa(j1.defesa, dado);
-                dano=at-def;
-                if(dano<0)
-                    dano=0;
-                printf("O ataque foi de %d e a defesa evitou %d de dano, o dano final foi de %d.", at,def,dano);
-                j1.vida-=dano;
+                j1.vida-=jdefesa(j2.forca,j2.velocidade,j1.defesa);
                 printf("\nA vida atual de %s é de: %d",j1.nome, j1.vida);
                 if(j1.vida<=0)
                     break;
@@ -46,26 +32,12 @@ int jogador2(PL j1, PL j2){
             printf("Jogador %s escolha 1 para esquivar ou 2 para defender: ",j2.nome);
             scanf("%d", &esc);
             if(esc==1){
-                dado=1+(rand()%8);
-                at=ataque(j1.forca,j1.velocidade);
-                es=esquivar(j2.velocidade, dado);
-                dano=at-es;
-                if(dano<0)
-                    dano=0;
-                printf("O ataque foi de %d e o esquivar evitou %d de dano, o dano final foi de %d.", at,es,dano);
-                j2.vida-=dano;
+                j2.vida-=jesquivar(j1.forca, j1.velocidade, j2.velocidade);
                 printf("\nA vida atual de %s é de: %d",j2.nome, j2.vida);
                 if(j2.vida<=0)
                     break;
             }else{
-                dado=1+(rand()%8);
-                at=ataque(j1.forca,j1.velocidade);
-                def=defesa(j2.defesa, dado);
-                dano=at-def;
-                if(dano<0)
-                    dano=0;
-                printf("O ataque foi de %d e a defesa evitou %d de dano, o dano final foi de %d.", at,def,dano);
-                j2.vida-=dano;
+                j2.vida-=jdefesa(j1.forca,j1.velocidade,j2.defesa);
                 printf("\nA vida atual de %s é de: %d",j2.nome, j2.vida);
                 if(j2.vida<=0)
                     break;
@@ -86,26 +58,12 @@ int jogador1(PL j1, PL j2){
         printf("Jogador %s escolha 1 para esquivar ou 2 para defender: ",j2.nome);
         scanf("%d", &esc);
             if(esc==1){
-                dado=1+(rand()%8);
-                at=ataque(j1.forca,j1.velocidade);
-                es=esquivar(j2.velocidade, dado);
-                dano=at-es;
-                if(dano<0)
-                    dano=0;
-                printf("O ataque foi de %d e o esquivar evitou %d de dano, o dano final foi de %d.", at,es,dano);
-                j2.vida-=dano;
+                j2.vida-=jesquivar(j1.forca, j1.velocidade, j2.velocidade);
                 printf("\nA vida atual de %s é de: %d",j2.nome, j2.vida);
                 if(j2.vida<=0)
                     break;
             }else{
-                dado=1+(rand()%8);
-                at=ataque(j1.forca,j1.velocidade);
-                def=defesa(j2.defesa, dado);
-                dano=at-def;
-                if(dano<0)
-                    dano=0;
-                printf("O ataque foi de %d e a defesa evitou %d de dano, o dano final foi de %d.", at,def,dano);
-                j2.vida-=dano;
+                j2.vida-=jdefesa(j1.forca,j1.velocidade,j2.defesa);
                 printf("\nA vida atual de %s é de: %d",j2.nome, j2.vida);
                 if(j2.vida<=0)
                     break;
@@ -114,26 +72,12 @@ int jogador1(PL j1, PL j2){
             printf("\nJogador %s escolha 1 para esquivar ou 2 para defender: ",j1.nome);
             scanf("%d", &esc);
             if(esc==1){
-                dado=1+(rand()%8);
-                at=ataque(j2.forca,j2.velocidade);
-                es=esquivar(j1.velocidade, dado);
-                dano=at-es;
-                if(dano<0)
-                    dano=0;
-                printf("O ataque foi de %d e o esquivar evitou %d de dano, o dano final foi de %d.", at,es,dano);
-                j1.vida-=dano;
+                j1.vida-=jesquivar(j2.forca, j2.velocidade, j1.velocidade);
                 printf("\nA vida atual de %s é de: %d",j1.nome, j1.vida);
                 if(j1.vida<=0)
                     break;
             }else{
-                dado=1+(rand()%8);
-                at=ataque(j2.forca,j2.velocidade);
-                def=defesa(j1.defesa, dado);
-                dano=at-def;
-                if(dano<0)
-                    dano=0;
-                printf("O ataque foi de %d e a defesa evitou %d de dano, o dano final foi de %d.", at,def,dano);
-                j1.vida-=dano;
+                j1.vida-=jdefesa(j2.forca,j2.velocidade,j1.defesa);
                 printf("\nA vida atual de %s é de: %d",j1.nome, j1.vida);
                 if(j1.vida<=0)
                     break;
@@ -153,6 +97,16 @@ void jogadores(){
     j2=criar(j2);
 }
 
+void jogar(){
+    printf("\nO octaedro vai ser jogado.\n");
+    int v=1+(rand()%8);
+    if(v%2==1){ 
+        jogador1(j1,j2);
+    }else{          //jogador dois inicia
+        jogador2(j1, j2);
+    }
+}
+
 int main(){
     setlocale(LC_ALL,"");
     srand(time(NULL));
@@ -160,13 +114,9 @@ int main(){
     jogadores();
     habilidades(j1,j2);
     
-    printf("\nO octaedro vai ser jogado.\n");
-    int v=1+(rand()%8);
-    if(v%2==1){     //jogador um inicia
-        jogador1(j1,j2);
-    }else{          //jogador dois inicia
-        jogador2(j1, j2);
-    }
+    jogar();
+    
+    puts("");
     puts("");
     puts("O jogo acabou.");
     puts("");
