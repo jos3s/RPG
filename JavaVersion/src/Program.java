@@ -14,6 +14,7 @@ public class Program {
 		Luta l=new Luta(p1,p2);
 		Random r= new Random();
 		int qAtacar=r.nextInt(2);
+		
 		while(p1.getVida()>0 || p2.getVida()>0) {
 			if(qAtacar==0) {
 				linha();

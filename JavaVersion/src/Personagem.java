@@ -52,11 +52,13 @@ public class Personagem {
 	    int at=this.forca*(this.vel/2);
 	    return at;
 	}
+	
 	public int defesa(){
 		Random r= new Random();
 	    this.def*=(r.nextInt(2)+1);
 	    return this.getDef();
-	 }
+	}
+	
 	public int esquivar(){
 		Random r= new Random();
 	    int es= this.vel*((r.nextInt(2)+1)*2);
